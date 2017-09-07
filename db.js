@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize'); //require 
-var sequelize = new Sequelize('workoutlog', 'postgres', 'Luna2015_', {  	//initialize connection
-	host: 'localhost',
+var sequelize = new Sequelize(process.env.DATABASE_URL ||
+	'postgres://postgres:Luna2015_@localhost:5432/workoutlog', {  	//initialize connection
 	dialect: 'postgres'
 });
 
