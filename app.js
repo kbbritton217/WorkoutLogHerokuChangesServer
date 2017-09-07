@@ -4,7 +4,7 @@ var app = express();
 var http = require('http').Server(app);
 var bodyParser = require('body-parser');
 var sequelize = require('./db.js');
-var User = sequelize.import(__dirname + '\\models\\user');
+
 
 //User.sync(); // reads whats in the database
 /****** THIS WILL DROP (DELETE) THE USER TABLE ******/
