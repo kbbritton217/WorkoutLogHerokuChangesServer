@@ -10,7 +10,7 @@ var sequelize = require('./db.js');
 /****** THIS WILL DROP (DELETE) THE USER TABLE ******/
 //User.sync({force:true}); //drops the tale completely 
 sequelize.sync();
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // configuration for express
 
 app.use(require('./middleware/headers'));
 app.use(require('./middleware/validate-session'));

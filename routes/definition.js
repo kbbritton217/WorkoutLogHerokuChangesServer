@@ -1,5 +1,3 @@
-
-
 var router = require('express').Router();
 var sequelize = require('../db');
 var User = sequelize.import('../models/user');
@@ -7,15 +5,15 @@ var Definition = sequelize.import('../models/definition');
 
 router.post('/', function(req,res) {
 	//variables
-	var description = req.body.definition.desc;
-	var logType = req.body.definition.type;
+	var description = req.body.exercise.exercises;
+	//var logType = req.body.definition.type;
 	var owner = req.user.id;
 
 	//methods
 	Definition
 		.create({
 			description: description,
-			logType: logType,
+			//logType: logType,
 			owner: owner
 		})
 		.then(

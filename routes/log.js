@@ -59,9 +59,9 @@ router.get('/:id', function(req, res){
 			}
 		);
 });
-//This will return the data from teh log that was updated
+//This will return the data from the log that was updated
 router.put('/', function(req, res) {
-	var description = req.body.log.desc;
+	var description = req.body.log.description;
 	var result = req.body.log.result;
 	var data = req.body.log.id;
 	var definition = req.body.log.def;

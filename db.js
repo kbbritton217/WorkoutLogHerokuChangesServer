@@ -1,14 +1,15 @@
-var Sequelize = require('sequelize'); //require 
-var sequelize = new Sequelize(process.env.DATABASE_URL ||
+var Sequelize = require('sequelize'); //require Sequelize so that it can communicate with the database. 
+//Sequelize uses javascript to create SQL statements to talk to the database
+var sequelize = new Sequelize(process.env.DATABASE_URL || //constructor method 
 	'postgres://postgres:Luna2015_@localhost:5432/workoutlog', {  	//initialize connection
 	dialect: 'postgres'
 });
 
-sequelize.authenticate().then( 	//authenticate connection
-	function() {
+sequelize.authenticate().then( 	//authenticate connection (authenticate is a sequelize method)
+	function() { //success
 		console.log('connected to workoutlog postgres db');
 	},
-	function(err){
+	function(err){ //failure
 		console.log(err);
 	}
 );

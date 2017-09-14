@@ -6,10 +6,10 @@ module.exports = function(req, res, next){
 	var sessionToken = req.headers.authorization
 
 	if(!req.body.user && sessionToken){
-		jwt.verify(sessionToken, process.env.JWT_SECRET, function(err, decoded){
+		jwt.verify(sessionToken, process.env.JWT_SECRET, function(err, decoded){ //if error, throw error, if decoded, move on
 			if(decoded){
-				User.findOne({where: {id:decoded.id}}).then(
-					function(user){
+				User.findOne({where: {id:decoded.id}}).then( //.findOne() comes from sequelize
+					function(user){ // is there a user?
 						req.user = user;
 						next();
 					},
